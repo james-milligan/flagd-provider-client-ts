@@ -1,0 +1,18 @@
+{
+  "exclude": ["./node_modules/*", "./dist/*"],
+  "compilerOptions": {
+    "lib": ["ES2019"],
+    "target": "ES2019",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "declaration": true,
+    "emitDeclarationOnly": false,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "outDir": "dist",
+    "rootDir": ".",
+    "allowJs": false
+  }
+}
