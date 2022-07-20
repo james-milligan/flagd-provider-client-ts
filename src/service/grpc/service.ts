@@ -17,10 +17,10 @@ import {
 import { RpcError } from '@protobuf-ts/runtime-rpc'
 import { FileOptions_OptimizeMode } from '../../proto/ts/google/protobuf/descriptor'
 import { Struct } from '../../proto/ts/google/protobuf/struct'
-
+import client from './client'
 export class GRPCService implements IService {
     client: ServiceClient;
-    constructor(client: ServiceClient) {
+    constructor() {
         this.client = client
     }
     async ResolveBoolean(flagKey: string, defaultValue: boolean, context: EvaluationContext): Promise<ResolutionDetails<boolean>> {
