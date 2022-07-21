@@ -12,7 +12,7 @@ function run() {
     let evCtx: EvaluationContext = {}
     evCtx.color = "yellow"
     OpenFeature.setProvider(new FlagdProvider({
-        service: new GRPCService
+        service: new GRPCService()
     }))
     async function test() {
         let client = OpenFeature.getClient("test-client")

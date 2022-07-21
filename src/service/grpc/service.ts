@@ -1,5 +1,6 @@
 import {IService} from '../IService'
 import {ServiceClient} from '../../proto/ts/schema/v1/schema.client'
+import * as grpc from '@grpc/grpc-js';
 import {
     EvaluationContext,
     ResolutionDetails
@@ -18,10 +19,11 @@ import { RpcError } from '@protobuf-ts/runtime-rpc'
 import { FileOptions_OptimizeMode } from '../../proto/ts/google/protobuf/descriptor'
 import { Struct } from '../../proto/ts/google/protobuf/struct'
 import client from './client'
+import { GrpcObject } from '@grpc/grpc-js'
 export class GRPCService implements IService {
     client: ServiceClient;
-    constructor() {
-        this.client = client
+    constructor(host?: string, port?: number, credentials?: grpc.ChannelCredentials) {
+        this.client = new client(host, port, credentials)
     }
     async ResolveBoolean(flagKey: string, defaultValue: boolean, context: EvaluationContext): Promise<ResolutionDetails<boolean>> {
         let res: ResolutionDetails<boolean> = {

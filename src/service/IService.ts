@@ -2,12 +2,6 @@ import {
     EvaluationContext,
     ResolutionDetails
 } from '@openfeature/nodejs-sdk'
-import {
-    ResolveBooleanResponse,
-    ResolveStringResponse,
-    ResolveNumberResponse,
-    ResolveObjectResponse
-} from '../proto/ts/schema/v1/schema'
 
 export interface IService {
     ResolveBoolean(flagKey: string, defaultValue: boolean, context: EvaluationContext): Promise<ResolutionDetails<boolean>>
